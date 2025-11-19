@@ -1,0 +1,5 @@
+{
+  "name": "PC Parts Store",
+  "description": "A client-facing e-commerce website for purchasing PC components. Features include product browsing, filtering, a shopping cart, wishlists, product comparisons, and user account management.",
+  "requestFramePermissions": []
+}
