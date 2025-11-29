@@ -24,11 +24,17 @@ const Header: React.FC = () => {
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `py-2 px-3 rounded-md text-sm font-medium transition-colors ${
-      isActive ? 'text-accent' : 'text-text-primary hover:bg-gray-100'
-    }`;
-  
-  const iconLinkClass = "relative p-2 rounded-full hover:bg-gray-100 transition-colors";
+  `relative py-2 px-3 rounded-md text-sm md:text-xl transition-colors group
+  ${isActive ? 'text-accent font-bold' : 'text-text-primary hover:bg-gray-100 font-medium'}
+  after:content-[''] after:absolute after:left-0 after:-bottom-[1px]
+  after:h-[1.5px] after:bg-accent after:transition-all after:duration-300
+  ${isActive ? 'after:w-full' : 'after:w-0 group-hover:after:w-full'}
+  `;
+
+  const iconLinkClass = (isActive: boolean) =>
+  `relative p-2 rounded-full transition-colors ${
+    isActive ? 'text-accent bg-gray-200' : 'text-text-secondary hover:bg-gray-100'
+  }`;
 
   return (
     <header className="bg-primary/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-border-color">
@@ -36,40 +42,51 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-accent">
             <Cpu size={28} />
-            <span className="text-text-primary">PC Parts</span>
+            <span className="text-text-primary">Sale PC</span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-4">
+          <nav className="hidden md:flex items-center space-x-4 font-bold">
             <NavLink to="/" className={navLinkClass}>Home</NavLink>
-            <NavLink to="/products" className={navLinkClass}>Products</NavLink>
+            <NavLink to="/products" className={navLinkClass}>Product</NavLink>
           </nav>
 
           <div className="flex items-center space-x-2">
-            <Link to="/compare" className={iconLinkClass} aria-label="Compare Products">
-              <GitCompare className="text-text-secondary" />
-              {compareList.length > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">{compareList.length}</span>
-              )}
-            </Link>
-            <Link to="/wishlist" className={iconLinkClass} aria-label="Your Wishlist">
-              <Heart className="text-text-secondary" />
-              {wishlist.length > 0 && (
-                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">{wishlist.length}</span>
-              )}
-            </Link>
-            <Link to="/pcbuilds" className={iconLinkClass} aria-label="PC Builder">
-                <Wrench className="text-text-secondary" />
-                {builds.length > 0 && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">{builds.length}</span>
+            <NavLink to="/compare" className={({ isActive }) => iconLinkClass(isActive)} aria-label="Compare Products">
+                <GitCompare />
+                {compareList.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">
+                    {compareList.length}
+                  </span>
                 )}
-            </Link>
-            <Link to="/cart" className={iconLinkClass} aria-label="Shopping Cart">
-              <ShoppingCart className="text-text-secondary" />
-              {cart.length > 0 && (
-                 <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">{cart.length}</span>
-              )}
-            </Link>
-            
+              </NavLink>
+
+              <NavLink to="/wishlist" className={({ isActive }) => iconLinkClass(isActive)} aria-label="Your Wishlist">
+                <Heart />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">
+                    {wishlist.length}
+                  </span>
+                )}
+              </NavLink>
+
+              <NavLink to="/pcbuilds" className={({ isActive }) => iconLinkClass(isActive)} aria-label="PC Builder">
+                <Wrench />
+                {builds.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">
+                    {builds.length}
+                  </span>
+                )}
+              </NavLink>
+
+              <NavLink to="/cart" className={({ isActive }) => iconLinkClass(isActive)} aria-label="Shopping Cart">
+                <ShoppingCart />
+                {cart.length > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-xs">
+                    {cart.length}
+                  </span>
+                )}
+              </NavLink>
+
             <div className="hidden md:block border-l border-border-color ml-2 pl-4">
               {isAuthenticated ? (
                 <div className="relative">
@@ -104,7 +121,7 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-primary border-t border-border-color">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
              <NavLink to="/" className={navLinkClass} onClick={()=>setIsMenuOpen(false)}>Home</NavLink>
-             <NavLink to="/products" className={navLinkClass} onClick={()=>setIsMenuOpen(false)}>Products</NavLink>
+             <NavLink to="/products" className={navLinkClass} onClick={()=>setIsMenuOpen(false)}>Product</NavLink>
           </div>
           <div className="pt-4 pb-3 border-t border-border-color">
             {isAuthenticated ? (

@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?q=80&w=2070&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmdifGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000',
     title: 'Build Your Dream PC',
     subtitle: 'Find the latest and greatest components to power up your rig.',
     cta: 'Shop Now',
     link: '/products'
   },
   {
-    url: 'https://images.unsplash.com/photo-1591491713921-2908a01770b7?q=80&w=2070&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1626218174358-7769486c4b79?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtaW5nJTIwcGN8ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000',
     title: 'Unleash Peak Performance',
     subtitle: 'Upgrade your components for an unparalleled gaming experience.',
     cta: 'Explore Parts',
     link: '/products'
   },
   {
-    url: 'https://images.unsplash.com/photo-1629202517865-455b88074900?q=80&w=1974&auto=format&fit=crop',
+    url: 'https://plus.unsplash.com/premium_photo-1682141878168-5dace8e1785d?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2FtaW5nJTIwcGN8ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000',
     title: 'Craft the Ultimate Setup',
     subtitle: 'From motherboards to memory, find every part you need for a perfect build.',
     cta: 'Browse All Parts',

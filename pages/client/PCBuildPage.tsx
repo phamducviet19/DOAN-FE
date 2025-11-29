@@ -13,7 +13,6 @@ const CORE_COMPONENTS = [
   { name: 'CPU', categoryId: 1 },
   { name: 'Motherboard', categoryId: 3 },
   { name: 'Memory (RAM)', categoryId: 9 },
-  // Assuming IDs for other categories
   { name: 'Video Card (GPU)', categoryId: 4 },
   { name: 'Storage', categoryId: 5 },
   { name: 'Power Supply', categoryId: 8 },
